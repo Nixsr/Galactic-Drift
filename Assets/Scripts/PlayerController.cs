@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour
     private float fixedZ;
     private Camera mainCamera;
 
-    // Per le funzioni di touching 
+    // For the touching function 
     private Vector2 initialTouchPosition;
     private Vector2 currentTouchPosition;
     private bool isTouching = false;
-    // Fine per le funzioni di touching
+    // End of the touching function variables
 
 
     void Start()
