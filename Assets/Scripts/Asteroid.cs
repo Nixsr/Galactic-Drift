@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        // Imposta una rotazione e una dimensione casuale per ogni asteroide
+        // Set a random rotation and size for each asteroid
         transform.rotation = Random.rotation;
         float randomSize = Random.Range(minSize, maxSize);
         transform.localScale = Vector3.one * randomSize;
@@ -16,30 +16,20 @@ public class Asteroid : MonoBehaviour
 
     private void Update()
     {
-        // Fa ruotare l'asteroide continuamente
+        // Make the asteroid rotate continuously
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-            // Il giocatore ha colpito l'asteroide
-    //        PlayerHit();
-    //    }
-    //}
-
     private void OnBecameInvisible()
     {
-        // L'asteroide è uscito dalla visuale della camera
+        // The asteroid has moved out of the camera's view
         AsteroidAvoided();
     }
 
     private void PlayerHit()
     {
         Debug.Log("Giocatore colpito da un asteroide!");
-        // Qui puoi aggiungere la logica per gestire la collisione con il giocatore
-        // Ad esempio, ridurre la vita del giocatore o terminare il gioco
+
         if (GameManager.Instance != null)
         {
             GameManager.Instance.PlayerHit();

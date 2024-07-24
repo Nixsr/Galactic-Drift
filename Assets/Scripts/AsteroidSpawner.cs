@@ -8,7 +8,7 @@ public class AsteroidSpawner : MonoBehaviour
     public float asteroidForce = 500f;
     public Vector3 spawnAreaSize = new Vector3(20f, 10f, 0f);
     public float spawnDistance = 400f;
-    public float avoidanceRadius = 10f; // Raggio intorno alla camera da evitare
+    public float avoidanceRadius = 10f; // Radius around the camera to avoid
 
     private Camera mainCamera;
 
@@ -17,11 +17,11 @@ public class AsteroidSpawner : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        //InvokeRepeating("SpawnAsteroid", 0f, spawnRate);
+        
         if (GameManager.Instance != null)
         {
             GameManager.Instance.totalAsteroids = totalAsteroids;
-            //GameManager.Instance.SetTotalAsteroids(totalAsteroids);
+            
             Debug.Log("AsteroidSpawner set total asteroids: " + totalAsteroids);
         }
         StartCoroutine(SpawnAsteroids());
@@ -63,13 +63,13 @@ public class AsteroidSpawner : MonoBehaviour
         Vector3 directionToCamera = mainCamera.transform.position - asteroidPosition;
         Vector3 perpendicularDirection = Vector3.Cross(directionToCamera, Vector3.up).normalized;
         
-        // Scegli casualmente se andare a destra o a sinistra della camera
+        // Randomly choose whether to go to the right or to the left of the room
         if (Random.value > 0.5f)
         {
             perpendicularDirection = -perpendicularDirection;
         }
 
-        // Calcola una direzione che evita la camera
+        // Calculate a direction that avoids the camera
         Vector3 avoidanceDirection = (directionToCamera + perpendicularDirection * avoidanceRadius).normalized;
         return avoidanceDirection;
     }
