@@ -64,12 +64,11 @@ public class LoginManager : MonoBehaviour
         {
             await auth.SignInWithEmailAndPasswordAsync(email, password);
             ShowMessage("Login successful!");
-            // TODO: Load the game scene or update UI for logged-in state
+            
             SceneManager.LoadScene("MainMenuGameLogged");
         }
         catch (FirebaseException e)
         {
-            //throw new System.Exception($"Firebase error ({e.ErrorCode}): {e.Message}");
             throw new System.Exception($"{e.Message}");
         }
     }
