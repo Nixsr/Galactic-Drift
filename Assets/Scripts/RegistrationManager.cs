@@ -72,8 +72,7 @@ public class RegistrationManager : MonoBehaviour
         {
             await auth.CreateUserWithEmailAndPasswordAsync(email, password);
             ShowMessage("Registration successful! You can now log in.");
-            // TODO: You might want to automatically log the user in here, or redirect to the login screen
-            //SceneManager.LoadScene(loginMenuScene);
+            
         }
         catch (FirebaseException e)
         {
