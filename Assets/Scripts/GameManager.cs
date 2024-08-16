@@ -8,13 +8,10 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 1;
     public int totalAsteroids;
 
-    //public int avoidedAsteroids;
     public int avoidedAsteroids { get; private set; }
 
-    // Per l'avviso alla fine di ogni livello
     public bool isLevelComplete { get; private set; }
 
-    // Per l'avviso alla fine del gioco
     public bool isGameCompleted { get; private set; }
 
     public int playerLives = 3;
@@ -60,8 +57,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Opzionale: potresti voler aggiungere una logica per far lampeggiare il giocatore o dargli temporanea invincibilità
-            Debug.Log($"Giocatore colpito! Vite rimanenti: {playerLives}");
+            
+            Debug.Log($"Player hit! Lives remaining.: {playerLives}");
         }
     }
 
@@ -82,14 +79,12 @@ public class GameManager : MonoBehaviour
     private void CompleteLevel()
     {
         Debug.Log("CompleteLevel called. Current level: " + currentLevel);
-        // Per l'avviso alla fine di ogni livello
+        
         isLevelComplete = true;
-        // Fine avviso
+        
         if (currentLevel < 3)
         {
             currentLevel++;
-            // Commentato per l'avviso alla fine di ogni livello
-            //LoadCurrentLevel();
         }
         else
         {
@@ -123,18 +118,11 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         Debug.Log("Game Over!");
-        // Qui puoi aggiungere logica per mostrare una schermata di Game Over
-        // Ad esempio: SceneManager.LoadScene("GameOverScene");
     }
 
     private void WinGame()
     {
         Debug.Log("Congratulazioni! Hai completato tutti i livelli!");
-        // Qui puoi aggiungere logica per mostrare una schermata di vittoria
-        // Ad esempio: SceneManager.LoadScene("WinScene");
-        //isGameOver = true;
-
-        // Per l'avviso alla fine del gioco
         isGameCompleted = true;
     }
 }
