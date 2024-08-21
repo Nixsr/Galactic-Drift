@@ -92,13 +92,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Metodo aggiunto per l'avviso alla fine di ogni livello
     public void ContinueToNextLevel()
     {
             isLevelComplete = false;
             LoadCurrentLevel();
     }
-    // Fine metodo aggiunto
 
     private void LoadCurrentLevel()
     {
