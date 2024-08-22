@@ -28,7 +28,7 @@ public class Asteroid : MonoBehaviour
 
     private void PlayerHit()
     {
-        Debug.Log("Giocatore colpito da un asteroide!");
+        Debug.Log("Player hit by an asteroid!");
 
         if (GameManager.Instance != null)
         {
