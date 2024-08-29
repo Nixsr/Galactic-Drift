@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Galactic Drift.sln"
+    "dotnet.defaultSolution": "Galactic Drift - Copy.sln"
 }
