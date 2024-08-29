@@ -71,6 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 *.dae
 *CubemapStars.cubemap
@@ -82,5 +83,7 @@ crashlytics-build.properties
 *.cubemap
 *.bundle
 *.so
+=======
+>>>>>>> 8f18752f721fbd563a50972ca64e3b7f2c7ba5ea
 =======
 >>>>>>> 8f18752f721fbd563a50972ca64e3b7f2c7ba5ea
