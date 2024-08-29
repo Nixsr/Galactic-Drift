@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933257589844",
+    "project_id": "galactic-drift",
+    "storage_bucket": "galactic-drift.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933257589844:android:696adbcb1750a6999d29c1",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.GalacticDrift"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNAx-jWxPT48dgNT6zEzf5xEkoGb7IzcM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
