@@ -84,3 +84,6 @@ crashlytics-build.properties
 *.cubemap
 *.bundle
 *.so
+*.png
+*.mat
+*emoScene.unity
