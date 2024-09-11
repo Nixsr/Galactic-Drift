@@ -38,9 +38,9 @@ public class UIManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        livesText.text = "Vite: " + GameManager.Instance.playerLives;
-        levelText.text = "Livello: " + GameManager.Instance.currentLevel;
-        avoidedAsteroidsText.text = "Asteroidi evitati: " + GameManager.Instance.avoidedAsteroids + "/" + GameManager.Instance.totalAsteroids;
+        livesText.text = "Lives: " + GameManager.Instance.playerLives;
+        levelText.text = "Level: " + GameManager.Instance.currentLevel;
+        avoidedAsteroidsText.text = "Asteroids avoided: " + GameManager.Instance.avoidedAsteroids + "/" + GameManager.Instance.totalAsteroids;
 
         if (GameManager.Instance.isGameOver)
     {
@@ -74,23 +74,10 @@ public class UIManager : MonoBehaviour
             winPanel.SetActive(false);
     }
 
-    // Per l'avviso alla fine del livello
-    //if (GameManager.Instance.isLevelComplete)
-      //  {
-        //    levelCompletePanel.SetActive(true);
-          //  levelCompleteText.text = $"Livello {GameManager.Instance.currentLevel-1} completato!";
-        //}
-        //else
-        //{
-         //   levelCompletePanel.SetActive(false);
-        //}
-    // Fine avviso alla fine del livello
-
-    // Per l'avviso alla fine del gioco
      if (GameManager.Instance.isLevelComplete)
         {
             levelCompletePanel.SetActive(true);
-            levelCompleteText.text = $"Livello {GameManager.Instance.currentLevel-1} completato!";
+            levelCompleteText.text = $"Level {GameManager.Instance.currentLevel-1} completed!";
             continueButton.gameObject.SetActive(true);
             gameWonPanel.SetActive(false);
         }
@@ -99,7 +86,7 @@ public class UIManager : MonoBehaviour
             levelCompletePanel.SetActive(false);
             continueButton.gameObject.SetActive(false);
             gameWonPanel.SetActive(true);
-            gameWonText.text = "Congratulazioni! Hai completato il gioco!";
+            gameWonText.text = "Congratulations! You have completed the game!";
         }
         else
         {

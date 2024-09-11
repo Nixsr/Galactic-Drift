@@ -2,8 +2,9 @@ using Firebase.Auth;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading.Tasks;  // For working with tasks
-using Firebase.Extensions; // For ContinueWithOnMainThread
+using System.Threading.Tasks;
+using Firebase.Extensions;
+using UnityEngine.SceneManagement;
 
 public class FirebaseSignup : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class FirebaseSignup : MonoBehaviour
 
             Debug.LogFormat("User signed up successfully: {0} ({1})", newUser.DisplayName, newUser.Email);
             statusText.text = "Signup successful!";
+
+            SceneManager.LoadScene("MainMenuLogin");
         });
     }
 }
