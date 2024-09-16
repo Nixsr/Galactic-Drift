@@ -545,7 +545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: High Score
+  m_Text: High Scores
 --- !u!1 &1067255441
 GameObject:
   m_ObjectHideFlags: 0
