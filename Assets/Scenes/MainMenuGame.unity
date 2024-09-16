@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 66356599}
   - component: {fileID: 66356598}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Login
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1050,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 3503114662265148322, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4771
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3503114662265148322, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
@@ -1075,12 +1075,12 @@ PrefabInstance:
     - target: {fileID: 3503114662265148322, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.7545776
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3503114662265148322, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.0727005
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3503114662265148322, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
@@ -1115,7 +1115,7 @@ PrefabInstance:
     - target: {fileID: 3741568170864781435, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -129.00076
+      value: -128
       objectReference: {fileID: 0}
     - target: {fileID: 3741568170864781435, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
@@ -1140,12 +1140,12 @@ PrefabInstance:
     - target: {fileID: 3741568170864781435, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -624.00183
+      value: -622
       objectReference: {fileID: 0}
     - target: {fileID: 3741568170864781435, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -286
+      value: -167
       objectReference: {fileID: 0}
     - target: {fileID: 3741568170864781435, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
@@ -1205,7 +1205,7 @@ PrefabInstance:
     - target: {fileID: 5407719983773388932, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -134.99998
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 5407719983773388932, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
@@ -1230,12 +1230,12 @@ PrefabInstance:
     - target: {fileID: 5407719983773388932, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -618
+      value: -621
       objectReference: {fileID: 0}
     - target: {fileID: 5407719983773388932, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -165
+      value: -283
       objectReference: {fileID: 0}
     - target: {fileID: 5407719983773388932, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
@@ -1372,6 +1372,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 901093477}
+    - target: {fileID: 6795348955529095010, guid: b5a09e830831fb249a73975b0dafdc08,
+        type: 3}
+      propertyPath: m_Name
+      value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795348955529095010, guid: b5a09e830831fb249a73975b0dafdc08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7203308672902150847, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1456,6 +1466,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.797
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846244698749169151, guid: b5a09e830831fb249a73975b0dafdc08,
+        type: 3}
+      propertyPath: m_Name
+      value: Register
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919340712469700771, guid: b5a09e830831fb249a73975b0dafdc08,
+        type: 3}
+      propertyPath: m_Name
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 8129181214739346664, guid: b5a09e830831fb249a73975b0dafdc08,
         type: 3}

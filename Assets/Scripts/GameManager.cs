@@ -17,6 +17,33 @@ public class GameManager : MonoBehaviour
     public int playerLives = 3;
     public bool isGameOver = false;
 
+    //For the score manager
+    private UIManager uiManager;
+    //[SerializeField] private UIManager uiManager;
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindUIManager();
+    }
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void FindUIManager()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        if (uiManager == null)
+        {
+            Debug.LogWarning("UIManager not found in the scene. Will try to find it when needed.");
+        }else
+        {
+            Debug.Log("UIManager found successfully.");
+        }
+    }
+    // End of score manager
+
     private void Awake()
     {
         if (Instance == null)
@@ -106,21 +133,64 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level" + currentLevel);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("Scene loaded: " + scene.name);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    // Uncomment if score manager doen't work
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+     //  Debug.Log("Scene loaded: " + scene.name);
+     //   SceneManager.sceneLoaded -= OnSceneLoaded;
+    //}
 
     private void GameOver()
     {
         isGameOver = true;
         Debug.Log("Game Over!");
+
+        // For the score manager
+        if (uiManager == null)
+        {
+            FindUIManager();
+        }
+
+        if (uiManager != null)
+        {
+            uiManager.AddScoreToHighScores(false);
+        }
+        else
+        {
+            Debug.LogError("UIManager not found. Unable to add score to high scores.");
+            // You might want to add a fallback method to save the score here
+        }
+        // End of score manager
+
     }
 
     private void WinGame()
     {
         Debug.Log("Congratulazioni! Hai completato tutti i livelli!");
         isGameCompleted = true;
+
+        // For the score manager
+        if (uiManager == null)
+        {
+            FindUIManager();
+        }
+
+        if (uiManager != null)
+        {
+            uiManager.AddScoreToHighScores(true);
+        }
+        else
+        {
+            Debug.LogError("UIManager not found. Unable to add score to high scores.");
+            // You might want to add a fallback method to save the score here
+        }
+        // End of score manager
     }
+
+    // For the score manager
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    // End of score manager
 }

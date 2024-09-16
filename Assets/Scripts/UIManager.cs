@@ -1,32 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public Text livesText;
     public Text levelText;
-    public Text avoidedAsteroidsText;  // Nuovo Text per asteroidi evitati
+    public Text avoidedAsteroidsText;  
 
-    // Per il bottone di pausa
     public GameObject pauseButton;
-
 
     public GameObject gameOverPanel;
     public GameObject winPanel;
 
-
-    // Per l'avviso alla fine del livello
     public GameObject levelCompletePanel;
     public Text levelCompleteText;
     public Button continueButton;
 
-    // Fine variabili per l'avviso alla fine del livello
-
-    // Aggiunto per l'avviso alla fine del gioco
     public GameObject gameWonPanel;
     public Text gameWonText;
-    // Fine variabili per l'avviso alla fine del gioco
 
     private void Update()
     {
@@ -46,10 +39,12 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance.currentLevel > 3)
         {
-            // Vittoria
             if (winPanel != null){
                 winPanel.SetActive(true);
                  HidePauseButton();
+                 // for the score manager
+                 AddScoreToHighScores(true);
+                 // end of score manager
             }
 
             if (gameOverPanel != null)
@@ -57,10 +52,12 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            // Game Over
             if (gameOverPanel != null){
                 gameOverPanel.SetActive(true);
                 HidePauseButton();
+                // for the score manager
+                AddScoreToHighScores(false);
+                // end of score manager
             }
             if (winPanel != null)
                 winPanel.SetActive(false);
@@ -87,16 +84,30 @@ public class UIManager : MonoBehaviour
             continueButton.gameObject.SetActive(false);
             gameWonPanel.SetActive(true);
             gameWonText.text = "Congratulations! You have completed the game!";
+            // for the score manager
+            AddScoreToHighScores(true);
+            // end of score manager
         }
         else
         {
             levelCompletePanel.SetActive(false);
             gameWonPanel.SetActive(false);
         }
-    // Fine avviso alla fine del gioco
     }
 
-    // Metodo aggiunto per l'avviso alla fine di ogni livello
+    // for the score manager
+    public void AddScoreToHighScores(bool gameCompleted)
+    {
+        //string username = LoginManager.Instance.Username;
+        string username = LoginManager.Instance.GetUsername();
+        int level = GameManager.Instance.currentLevel;
+        int avoidedAsteroids = GameManager.Instance.avoidedAsteroids;
+        int totalAsteroids = GameManager.Instance.totalAsteroids;
+
+        ScoreManager.Instance.AddScore(username, level, avoidedAsteroids, totalAsteroids, gameCompleted);
+    }
+    // end of score manager
+
     public void ContinueToNextLevel()
     {
         if (GameManager.Instance != null)
@@ -105,30 +116,32 @@ public class UIManager : MonoBehaviour
             levelCompletePanel.SetActive(false);
         }
     }
-    // Fine metodo aggiunto per l'avviso alla fine di ogni livello
 
- //Original RestartGame Method
     public void RestartGame()
     {
         GameManager.Instance.StartGame();
         gameOverPanel.SetActive(false);
         winPanel.SetActive(false);
         
-        // Aggiunto per resettare il Text degli asteroidi evitati
+ 
         Destroy(gameObject);
     }
 
-    // Per il bottone di pausa
     private void HidePauseButton()
     {
         pauseButton.SetActive(false);
     }
 
-    // Per il bottone di pausa
     private void ShowPauseButton()
     {
         pauseButton.SetActive(true);
     }
 
+    // for the score manager
+    public void ShowHighScores()
+    {
+        ScoreManager.Instance.ShowHighScoreScene();
+    }
+    // end of score manager
 
 }

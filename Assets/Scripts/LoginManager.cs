@@ -7,17 +7,84 @@ using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
 {
-    [SerializeField] private TextInputButton emailInputButton;
+    [SerializeField] public TextInputButton emailInputButton;
     [SerializeField] private TextInputButton passwordInputButton;
     [SerializeField] private TMP_Text messageText;
 
+    private static LoginManager instance;
+
     private FirebaseAuth auth;
+
+    //For the score manager
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // End of score manager
 
     private void Start()
     {
         // Initialize Firebase Auth
         auth = FirebaseAuth.DefaultInstance;
     }
+
+
+    // For score manager
+    public static LoginManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<LoginManager>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(LoginManager).Name;
+                    instance = obj.AddComponent<LoginManager>();
+                }
+            }
+            return instance;
+        }
+    }
+
+    private string username;
+
+    public string Username { get { return username; } }
+
+    public void ExtractUsername(string email)
+    {
+        username = email.Split('@')[0];
+    }
+
+    public string GetUsername()
+    {
+        if (string.IsNullOrEmpty(username))
+        {
+            if (auth.CurrentUser != null && !string.IsNullOrEmpty(auth.CurrentUser.Email))
+            {
+                ExtractUsername(auth.CurrentUser.Email);
+            }
+            else
+            {
+                Debug.LogWarning("User is not logged in or email is not available.");
+                return null;
+            }
+        }
+        return username;
+    }
+
+    // End of score manager
 
     public async void OnLoginButtonClick()
     {
@@ -77,4 +144,5 @@ public class LoginManager : MonoBehaviour
     {
         messageText.text = message;
     }
+
 }

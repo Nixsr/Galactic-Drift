@@ -76,6 +76,15 @@ public class MenuManager : MonoBehaviour
         //isPaused = true;
     }
 
+    public void ShowHighScore()
+    {
+        Debug.Log("ShowHighScore method called");
+        //SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene("HighScoreScene");
+        Time.timeScale = 1;
+        //isPaused = true;
+    }
+
     public void TogglePauseMenu()
     {
         isPaused = !isPaused;
