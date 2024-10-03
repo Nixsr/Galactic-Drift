@@ -84,3 +84,6 @@ crashlytics-build.properties
 *.png
 *.mat
 *emoScene.unity
+
+*google-services.json
+*google-services-desktop.json
