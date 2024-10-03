@@ -12,7 +12,7 @@ public class HighScoreSceneManager : MonoBehaviour
 
     private List<PlayerScore> highScores;
     private float yOffset = -50f;  // Starting Y position for the first score
-    private float scoreSpacing = 30f;  // Vertical space between scores
+    private float scoreSpacing = 50f;  // Vertical space between scores
 
     private void Start()
     {
@@ -46,12 +46,12 @@ public class HighScoreSceneManager : MonoBehaviour
         .GroupBy(score => score.username)
         .Select(group => group
             .OrderByDescending(score => score.gameCompleted)
-            .ThenByDescending(score => score.avoidedAsteroids)
             .ThenByDescending(score => score.level)
+            .ThenByDescending(score => score.avoidedAsteroids)
             .First())  // Prendi il miglior punteggio per ogni utente
         .OrderByDescending(score => score.gameCompleted)
-        .ThenByDescending(score => score.avoidedAsteroids)
         .ThenByDescending(score => score.level)
+        .ThenByDescending(score => score.avoidedAsteroids)
         .ToList();
     }
 
@@ -106,7 +106,7 @@ public class HighScoreSceneManager : MonoBehaviour
         rectTransform.anchorMin = new Vector2(0, 1);
         rectTransform.anchorMax = new Vector2(1, 1);
         rectTransform.anchoredPosition = new Vector2(0, yOffset - (index * scoreSpacing));
-        rectTransform.sizeDelta = new Vector2(0, 25);
+        rectTransform.sizeDelta = new Vector2(0, 70);
 
         // Create and set up the Text component
         Text scoreText = scoreEntryObj.AddComponent<Text>();
@@ -125,7 +125,7 @@ public class HighScoreSceneManager : MonoBehaviour
         {
             Debug.LogWarning("Default font not found. Text may not display correctly.");
         }
-        scoreText.fontSize = 20;  // Reduced font size to fit more information
+        scoreText.fontSize = 40;  // Reduced font size to fit more information
         scoreText.alignment = TextAnchor.MiddleCenter;
 
         // Format the score text
